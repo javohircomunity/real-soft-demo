@@ -24,7 +24,7 @@ public class ProductItem extends AbstractEntity {
     @Column(nullable = false)
     private Long count;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)

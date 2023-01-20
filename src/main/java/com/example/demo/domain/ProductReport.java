@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import com.example.demo.dto.enums.ActionType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,20 +18,28 @@ import javax.persistence.*;
 @DynamicInsert
 @DynamicUpdate
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "product_reports")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class ProductReport extends AbstractEntity {
 
-    private Double count;
+    @Column(nullable = false)
+    private Long count;
 
-    @Column(name = "action_type")
+    @Column(name = "action_type", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private ActionType actionType;
 
+    @Column(nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Product product;
+
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private LocalUser localUser;
 
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Organization organization;
 }
