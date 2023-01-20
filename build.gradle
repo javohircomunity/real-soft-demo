@@ -1,0 +1,60 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.cashmanagement'
+version = '1'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	springBootVersion = "2.6.2"
+	jwtVersion = "0.9.1"
+	mapstructVersion = "1.4.2.Final"
+	lombokVersion = "1.18.22"
+	lombokMapstructBindingVersion = "0.2.0"
+	hibernateTypesVersion = "2.14.0"
+	commonsApacheVersion = "3.12.0"
+	swaggerVersion = "2.9.2"
+	postgresVersion = '42.3.8'
+	gsonVersion = '2.8.9'
+	jacksonVersion = '2.13.1'
+	hikariCPVersion = '5.0.1'
+}
+
+dependencies {
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	implementation "org.projectlombok:lombok:${lombokVersion}"
+
+	implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+	implementation "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+
+	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+	implementation "io.jsonwebtoken:jjwt:${jwtVersion}"
+
+	implementation "com.vladmihalcea:hibernate-types-52:${hibernateTypesVersion}"
+	implementation "com.fasterxml.jackson.module:jackson-module-jaxb-annotations:${jacksonVersion}"
+
+	implementation "org.apache.commons:commons-lang3:${commonsApacheVersion}"
+	implementation "org.postgresql:postgresql:${postgresVersion}"
+	implementation "com.google.code.gson:gson:${gsonVersion}"
+	implementation "com.zaxxer:HikariCP:${hikariCPVersion}"
+}
+
+test {
+	useJUnitPlatform()
+}
