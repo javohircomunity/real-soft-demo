@@ -12,6 +12,7 @@ public abstract class ProductReportMapper {
 
     @Mapping(source = "product.name", target = "productName")
     @Mapping(source = "organization.name", target = "organizationName")
+    @Mapping(target = "localUser", ignore = true)
     public abstract ProductReportDto toDto(ProductReport productReport);
 
     @AfterMapping

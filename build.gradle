@@ -25,6 +25,7 @@ ext {
 	gsonVersion = '2.8.9'
 	jacksonVersion = '2.13.1'
 	hikariCPVersion = '5.0.1'
+	swaggerVersion = "2.9.2"
 }
 
 dependencies {
@@ -45,6 +46,10 @@ dependencies {
 
 	implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
 	implementation "io.jsonwebtoken:jjwt:${jwtVersion}"
+
+	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+	implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
+
 
 	implementation "com.vladmihalcea:hibernate-types-52:${hibernateTypesVersion}"
 	implementation "com.fasterxml.jackson.module:jackson-module-jaxb-annotations:${jacksonVersion}"

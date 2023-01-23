@@ -31,15 +31,12 @@ public class ProductReport extends AbstractEntity {
     @Enumerated(EnumType.ORDINAL)
     private ActionType actionType;
 
-    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
-    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private LocalUser localUser;
 
-    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Organization organization;
 }
